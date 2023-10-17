@@ -22,7 +22,8 @@ int main(){
         case 5: printf("Something5\n");
         break;
 
-        case else: printf("Error!");
+        default: printf("Error!\n");
+        break;
 
     }
 
