@@ -72,10 +72,11 @@ int main()
         case 'B':
         case 'b':
             counter = 0;
-            while (daily_readings[counter].date != NULL)
+            while (fgets(line, buffer_size, input) != EOF)
             {
-                mean += daily_readings[counter].bloodIron;
+                mean += daily_readings[counter].bloodIron; // error as the counter continues to several hundreds
                 counter++;
+                printf("%d\n", counter);
             }
             printf("The mean is: %f", mean/counter);
             break;
