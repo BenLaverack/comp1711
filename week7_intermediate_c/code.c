@@ -20,6 +20,7 @@ int main()
     char choice;
     int counter = 0;
     float mean = 0;
+    int total = 0;
 
     while (1)
     {
@@ -37,6 +38,7 @@ int main()
             // using the & operator to pass in a pointer to the bloodIron so it stores it
             tokeniseRecord(line, ",", daily_readings[counter].date, &daily_readings[counter].bloodIron);
             counter++;
+            total++; // a counter for the amount of structs that are created
         }
 
         printf("A: View all your blood iron levels\n");                       // BRONZE
@@ -71,14 +73,11 @@ int main()
 
         case 'B':
         case 'b':
-            counter = 0;
-            while (fgets(line, buffer_size, input) != EOF)
+            for (counter = 0; counter <= total; counter++)
             {
                 mean += daily_readings[counter].bloodIron; // error as the counter continues to several hundreds
-                counter++;
-                printf("%d\n", counter);
             }
-            printf("The mean is: %f", mean/counter);
+            printf("The mean is: %f\n", mean/total);
             break;
 
         case 'C':
