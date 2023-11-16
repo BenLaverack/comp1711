@@ -21,6 +21,7 @@ int main()
     int counter = 0;
     float mean = 0;
     int total = 0;
+    float max_min = 0;
 
     while (1)
     {
@@ -75,17 +76,37 @@ int main()
         case 'b':
             for (counter = 0; counter <= total; counter++)
             {
-                mean += daily_readings[counter].bloodIron; // error as the counter continues to several hundreds
+                mean += daily_readings[counter].bloodIron;
             }
             printf("The mean is: %f\n", mean/total);
             break;
 
         case 'C':
         case 'c':
+            counter = 0;
+            max_min = daily_readings[counter].bloodIron;
+            for (counter = 0; counter <= total; counter++)
+            {
+                if (daily_readings[counter].bloodIron < max_min)
+                {
+                    max_min = daily_readings[counter].bloodIron;
+                }
+            }
+            printf("The minimum Blood Iron was: %f\n", max_min);
             break;
 
         case 'D':
         case 'd':
+            counter = 0;
+            max_min = daily_readings[counter].bloodIron;
+            for (counter = 0; counter <= total; counter++)
+            {
+                if (daily_readings[counter].bloodIron > max_min)
+                {
+                    max_min = daily_readings[counter].bloodIron;
+                }
+            }
+            printf("The maximum Blood Iron was: %f\n", max_min);
             break;
 
         case 'E':
