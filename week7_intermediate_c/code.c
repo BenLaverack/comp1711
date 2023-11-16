@@ -21,7 +21,8 @@ int main()
     int counter = 0;
     float mean = 0;
     int total = 0;
-    float max_min = 0;
+    float max = 0;
+    float min = 0;
 
     while (1)
     {
@@ -65,6 +66,7 @@ int main()
         // this allows for either capital or lower case
         case 'A':
         case 'a':
+            counter = 0;
             for (int i = 0; i < counter; i++)
             {
                 printf("%s - Blood iron: %.1f\n", daily_readings[i].date, daily_readings[i].bloodIron);
@@ -84,29 +86,29 @@ int main()
         case 'C':
         case 'c':
             counter = 0;
-            max_min = daily_readings[counter].bloodIron;
+            min = daily_readings[0].bloodIron;
             for (counter = 0; counter <= total; counter++)
             {
-                if (daily_readings[counter].bloodIron < max_min)
+                if (daily_readings[counter].bloodIron < min)
                 {
-                    max_min = daily_readings[counter].bloodIron;
+                    min = daily_readings[counter].bloodIron;
                 }
             }
-            printf("The minimum Blood Iron was: %f\n", max_min);
+            printf("The minimum Blood Iron was: %f\n", min);
             break;
 
         case 'D':
         case 'd':
             counter = 0;
-            max_min = daily_readings[counter].bloodIron;
+            max = daily_readings[0].bloodIron;
             for (counter = 0; counter <= total; counter++)
             {
-                if (daily_readings[counter].bloodIron > max_min)
+                if (daily_readings[counter].bloodIron > max)
                 {
-                    max_min = daily_readings[counter].bloodIron;
+                    max = daily_readings[counter].bloodIron;
                 }
             }
-            printf("The maximum Blood Iron was: %f\n", max_min);
+            printf("The maximum Blood Iron was: %f\n", max);
             break;
 
         case 'E':
