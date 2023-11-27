@@ -1,0 +1,2 @@
+What is a pointer?
+A pointer is a variable which holds the data address of another value
